@@ -2,11 +2,7 @@ import React from "react";
 import CommentsBox from "../components/CommentsBox";
 import Header from "../components/Header";
 
-interface DataType {
-  id: number;
-  title: string;
-  body: string;
-}
+
 export default async function Pages({
   params,
 }: {

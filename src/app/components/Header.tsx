@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link"
 const Header = () => {
   return (
     <>
@@ -8,9 +8,9 @@ const Header = () => {
           Bloger
         </h1>
         <div className="flex gap-5 items-center text-4xl text-white font-semibold">
-          <a href="/" className="hover:text-red-900 transition-all">
+          <Link href="/" className="hover:text-red-900 transition-all">
             Home
-          </a>
+          </Link>
           <a href="#" className="hover:text-red-900 transition-all">
             About
           </a>

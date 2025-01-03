@@ -1,40 +1,24 @@
 import React from "react";
-import { client } from "@/sanity/lib/client";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
 import Header from "./components/Header";
 export default async function Home() {
-  interface DataType {
-    mainHeading: string;
-    description: string;
-    blogdate: number;
-    image: {
-      alt: string;
-      asset: {
-        url: string;
-      };
-    };
-  }
-  const query = `*[_type == "blog"]{
-  image{
-    asset->{
-      url
-    },
-    alt
-  },
-  blogdate,
-  mainHeading,
-  description
-}`;
-  let data = await client.fetch(query);
-  return (
+
+  const api = "https://dummyjson.com/posts";
+
+  // const fetchData = () =>{
+  const data = await fetch(api);
+  const blogData = await data.json();
+  console.log(blogData);
+  // }
+  // fetchData()
+return (
     <>
       <Header />
       <h1 className="text-center py-3 font-bold text-[22px]">BLOGS</h1>
       <div className="bg-red-950 w-full h-screen p-10 ">
         <div className="bg-[#a0303094] rounded-lg w-full h-full p-10 grid grid-cols-3 grid-rows-1 gap-5 text-black overflow-hidden">
           <div className="col-span-2 grid grid-cols-2  gap-10 overflow-hidden">
-            {data.map((e: DataType, index: number) => {
+            {data.map((e index: number) => {
               return (
                 <>
                   <a key={index} href={`/${index}`}>

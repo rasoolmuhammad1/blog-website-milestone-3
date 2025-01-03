@@ -4,7 +4,7 @@ interface comment {
   username: string;
   comment: string;
 }
-const CommentsBox = ({ params }: { params: { id: string } }) => {
+const CommentsBox = ({ params }: { params: { id: number } }) => {
   const [formData, setformData] = useState({ username: "", comment: "" });
   const [comments, setcomments] = useState<comment[]>([]);
 
@@ -34,7 +34,7 @@ const CommentsBox = ({ params }: { params: { id: string } }) => {
 
   return (
     <>
-      <div className="w-[600px] p-5 bg-[#f7f7f7e0]  rounded-lg text-black">
+      <div className="w-[350px] md:w-[600px] p-5 bg-[#f7f7f7e0]  rounded-lg text-black">
         <p className="text-[23px] font-semibold text-red-950 pb-2">Comments</p>
         <div className=" flex flex-col gap-5 justify-center items-center">
           <form
@@ -44,21 +44,21 @@ const CommentsBox = ({ params }: { params: { id: string } }) => {
             <input
               name="username"
               type="text"
-              className="p-2 w-[400px]  "
+              className="p-2 w-[300px] md:w-[400px]  "
               placeholder="User Name"
               value={formData.username}
               onChange={inputHandler}
             />
             <textarea
               name="comment"
-              className="p-2 w-[400px] h-40"
+              className="p-2 w-[300px] md:w-[400px] h-40"
               placeholder="User Comment"
               value={formData.comment}
               onChange={inputHandler}
             />
             <button
               type="submit"
-              className="bg-red-950 text-[20px] w-[400px] p-3 text-white"
+              className="bg-red-950 text-[20px] w-[300px] md:w-[400px] p-3 text-white"
             >
               Comment
             </button>
